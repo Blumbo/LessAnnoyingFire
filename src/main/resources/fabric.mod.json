@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "lessannoyingfire",
+  "version": "${version}",
+  "name": "LessAnnoyingFire",
+  "description": "",
+  "authors": [
+    "Blumbo"
+  ],
+  "contact": {},
+  "license": "MIT",
+  "icon": "assets/lessannoyingfire/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "net.blumbo.lessannoyingfire.client.LessAnnoyingFireClient"
+    ],
+    "main": [
+      "net.blumbo.lessannoyingfire.LessAnnoyingFire"
+    ]
+  },
+  "mixins": [
+    "lessannoyingfire.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.12.0",
+    "fabric": "*",
+    "minecraft": "1.19.3"
+  }
+}

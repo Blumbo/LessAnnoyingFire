@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "net.blumbo.lessannoyingfire.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "mixins": [
+    "ExplosionMixin",
+    "InGameOverlayRendererMixin",
+    "LivingEntityMixin"
+  ],
+  "client": [
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
