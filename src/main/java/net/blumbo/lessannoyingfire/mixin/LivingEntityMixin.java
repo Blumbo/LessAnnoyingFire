@@ -34,7 +34,7 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @Redirect(method = "damage", at = @At(value = "FIELD", ordinal = 0, opcode = Opcodes.GETFIELD, target = "Lnet/minecraft/entity/LivingEntity;timeUntilRegen:I"))
-    private int uh(LivingEntity value) {
+    private int getInvulnerabilityTicks(LivingEntity value) {
         // Make fire caused invulnerability ticks irrelevant if damage comes from an entity
         if (fireDamageSource(value, lastDamageSource) && damageSource.getSource() != null) return 0;
         return timeUntilRegen;
@@ -46,10 +46,9 @@ public abstract class LivingEntityMixin extends Entity {
     }
 
     @Redirect(method = "damage", at = @At(value = "INVOKE", target = "Lnet/minecraft/entity/LivingEntity;scheduleVelocityUpdate()V"))
-    private void yes(LivingEntity instance) {
+    private void velocityUpdateCondition(LivingEntity instance) {
         // Prevent fire from messing up movement
         if (!fireDamageSource(instance, damageSource)) scheduleVelocityUpdate();
-
     }
 
     private static boolean fireDamageSource(LivingEntity entity, DamageSource damageSource) {
